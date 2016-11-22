@@ -1,7 +1,7 @@
-var Loader = require('../src/Loader.vue')
+const Loader = require('../src/Loader.vue');
 
 module.exports = {
-    install: function (Vue, options) {
-        Vue.component('semantic-loader', Loader);
-    },
+  install: function (Vue, options) {
+    Vue.component('semantic-loader', Loader);
+  }
 }

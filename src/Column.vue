@@ -1,29 +1,31 @@
 <template>
-    <div :class="columnClasses">
-        <slot></slot>
-    </div>
+<div :class="columnClasses">
+  <slot></slot>
+</div>
 </template>
 
 <script>
-    export default {
-        props: {
-            width: {},
-        },
-
-        computed: {
-            columnClasses() {
-                const classes = {
-                    ui: true,
-                    column:true,
-                }
-
-                if (typeof this.width !== 'undefined') {
-                    classes[this.width] = true
-                    classes.wide = true
-                }
-
-                return classes
-            },
-        },
+export default {
+  props: {
+    width: {
+      type: String,
+      default: 'four'
     }
+  },
+  computed: {
+    columnClasses() {
+      const classes = {
+        ui: true,
+        column: true,
+      }
+
+      if (typeof this.width !== 'undefined') {
+        classes[this.width] = true
+        classes.wide = true
+      }
+
+      return classes
+    },
+  },
+}
 </script>

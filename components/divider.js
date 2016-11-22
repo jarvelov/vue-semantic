@@ -1,7 +1,7 @@
-var Divider = require('../src/Divider.vue');
+const Divider = require('../src/Divider.vue');
 
 module.exports = {
-    install: function (Vue, options) {
-        Vue.component('semantic-divider', Divider);
-    },
+  install: function (Vue, options) {
+    Vue.component('semantic-divider', Divider);
+  }
 }

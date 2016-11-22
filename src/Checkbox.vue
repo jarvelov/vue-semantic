@@ -8,23 +8,47 @@
 <script>
     export default {
         props: {
-            model: {},
-            label: {},
-            labelChecked: {},
-            disabled: {},
-            type: {},
+            checked: {
+              type: Boolean,
+              default: false
+            },
+            label: {
+              type: String,
+              default: ''
+            },
+            labelChecked: {
+              type: String,
+              default: ''
+            },
+            disabled: {
+              type: Boolean,
+              default: false
+            },
+            type: {
+              type: String,
+              default: 'checkbox'
+            }
         },
 
         computed: {
             checkboxClasses() {
+                let keys = this.$options.$propsKeys;
+
+                keys.map(key => {
+                  console.log(key, this[key]);
+                });
+
                 return {
                     ui: true,
-                    checkbox: true,
-                    disabled: typeof this.disabled !== 'undefined',
+                    checkbox: this.type === 'checkbox',
                     slider: this.type === 'slider',
                     toggle: this.type === 'toggle',
+                    disabled: !this.disabled
                 }
             },
+            model () {
+              return this.checked;
+            }
         },
 
         methods : {

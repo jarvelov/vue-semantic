@@ -1,7 +1,7 @@
-var Search = require('../src/Search.vue');
+const Search = require('../src/Search.vue');
 
 module.exports = {
-    install: function (Vue, options) {
-        Vue.component('semantic-search', Search);
-    },
+  install: function (Vue, options) {
+    Vue.component('semantic-search', Search);
+  }
 }

@@ -15,7 +15,7 @@
         },
 
         mixins: [
-            CommonProps,
+            CommonProps
         ],
 
         computed: {

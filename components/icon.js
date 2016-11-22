@@ -1,7 +1,7 @@
-var Icon = require('../src/Icon.vue')
+const Icon = require('../src/Icon.vue');
 
 module.exports = {
-    install: function (Vue, options) {
-        Vue.component('semantic-icon', Icon);
-    },
+  install: function (Vue, options) {
+    Vue.component('semantic-icon', Icon);
+  }
 }

@@ -1,34 +1,41 @@
 <template>
-    <div :class="messageClasses">
-        <i class="close icon" v-if="dismissable" @click="this.show=false"></i>
-        <slot></slot>
-    </div>
+<div :class="messageClasses">
+  <i class="close icon" v-if="dismissable" @click="close"></i>
+  <slot></slot>
+</div>
 </template>
 
 <script>
-    export default {
-        props: {
-            size: {},
-            type: {},
-            show: {
-                default: true,
-            },
-            dismissable: {
-                default: false,
-            },
-        },
-        computed: {
-            messageClasses() {
-                return {
-                    'ui': true,
-                    'message': true,
-                    'success': this.type === 'success',
-                    'warning': this.type === 'warning',
-                    'error': this.type === 'error',
-                    'small': this.size === 'small',
-                    'large': this.size === 'large',
-                };
-            },
-        },
+export default {
+  props: {
+    size: {},
+    type: {
+      type: String,
+    },
+    show: {
+      default: true
+    },
+    dismissable: {
+      default: false
     }
+  },
+  computed: {
+    messageClasses() {
+      return this.$options.propsKeys.reduce(o, key => {
+        if (this[key]) {
+          o[key] = this[key];
+        }
+        return o;
+      }, {
+        ui: true,
+        message: true
+      });
+    }
+  },
+  methods: {
+    close () {
+      this.show = false
+    }
+  }
+}
 </script>
