@@ -1,5 +1,5 @@
 <template>
-<div :class="sidebarClasses">
+<div :id="elementId" :class="sidebarClasses">
   <slot></slot>
 </div>
 </template>
@@ -14,6 +14,10 @@ export default {
     elementId: {
       type: String,
       default: 'sidebar'
+    },
+    grid: {
+      type: Boolean,
+      default: false
     },
     pushable: {
       type: Boolean,
@@ -37,19 +41,18 @@ export default {
     }
   },
   watch: {
-    show (val) {
-      console.log(val);
-      console.log('change!');
+    show () {
+      this.toggle();
     }
   },
   methods: {
     toggle (event) {
       console.log('toggle sidebar!');
+      $('#' + this.elementId).sidebar('toggle');
     }
   },
   computed: {
     sidebarClasses() {
-      console.log(this.visible);
       return this.$options._propKeys.reduce((o, key) => {
         if (this[key]) {
           if (typeof this[key] === 'boolean') {
