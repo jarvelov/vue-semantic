@@ -1,41 +1,107 @@
 <template>
-<div class="ui styled fluid accordion">
-  <span v-for="item in items">
-    <div class="title">
-      <i class="dropdown icon"></i>
-      {{ item.title }}
-    </div>
-    <div class="content">{{ item.content }}</div>
-  </span>
+<div :class="menuClasses">
+  <slot></slot>
 </div>
 </template>
 
 <script>
-import CommonProps from '../utils/CommonPropsMixin'
-
 export default {
   props: {
-    type: {
-      type: String,
-      default: 'menu'
-    },
-    openLast: {
+    attached: {
+      type: Boolean,
       default: false
-    }
+    },
+    borderless: {
+      type: Boolean,
+      default: false
+    },
+    colored: {
+      type: Boolean,
+      default: false
+    },
+    compact: {
+      type: Boolean,
+      default: false
+    },
+    direction: {
+      type: String,
+      default: 'top'
+    },
+    evenly: {
+      type: Boolean,
+      default: false
+    },
+    fitted: {
+      type: Boolean,
+      default: false
+    },
+    fixed: {
+      type: Boolean,
+      default: false
+    },
+    fluid: {
+      type: Boolean,
+      default: false
+    },
+    icons: {
+      type: Boolean,
+      default: false
+    },
+    inverted: {
+      type: Boolean,
+      default: false
+    },
+    labeled: {
+      type: Boolean,
+      default: false
+    },
+    pointing: {
+      type: Boolean,
+      default: false
+    },
+    secondary: {
+      type: Boolean,
+      default: false
+    },
+    tabular: {
+      type: Boolean,
+      default: false
+    },
+    text: {
+      type: Boolean,
+      default: false
+    },
+    vertical: {
+      type: Boolean,
+      default: false
+    },
+    pagination: {
+      type: Boolean,
+      default: false
+    },
+    size: {
+      type: String,
+      default: ''
+    },
+    stackable: {
+      type: Boolean,
+      default: false
+    },
   },
-  mixins: [
-    CommonProps
-  ],
   computed: {
     menuClasses () {
-      let menuTypes =
-      this.$options.propsKeys.reduce((o, key) => {
+      return this.$options._propKeys.reduce((o, key) => {
         if (this[key]) {
-          if (this[key] in CommonProps['menu'][key]) {
-            o[key] = this[key];
+          if (typeof this[key] === 'boolean') {
+            o[key] = true;
+          } else {
+            o[this[key]] = true;
           }
         }
         return o;
+      }, {
+        ui: true,
+        menu: true
       });
     }
   }

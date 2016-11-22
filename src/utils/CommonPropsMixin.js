@@ -25,17 +25,15 @@ module.exports = {
       }
       return classes
     },
-    menu: {
-      type() {
-        return [
-          'secondary',
-          'pointing',
-          'tabular',
-          'text',
-          'vertical',
-          'pagination'
-        ];
-      }
+    menuType () {
+      return [
+        'secondary',
+        'pointing',
+        'tabular',
+        'text',
+        'vertical',
+        'pagination'
+      ];
     },
     variations() {
       return [

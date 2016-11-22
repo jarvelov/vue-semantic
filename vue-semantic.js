@@ -8,12 +8,14 @@ const Icon = require('./src/elements/Icon.vue');
 const Label = require('./src/Label.vue');
 const Loading = require('./src/Loading.vue');
 const Message = require('./src/Message.vue');
+const Menu = require('./src/Menu.vue');
 const Modal = require('./src/Modal.vue');
 const Popup = require('./src/Popup.vue');
 const Radiobutton = require('./src/Radiobutton.vue');
 const Rail = require('./src/elements/Rail.vue');
 const Reveal = require('./src/Reveal.vue');
 const Search = require('./src/Search.vue');
+const Sidebar = require('./src/Sidebar.vue');
 const Statistic = require('./src/Statistic.vue');
 
 module.exports = {
@@ -28,12 +30,14 @@ module.exports = {
     Vue.component('semantic-label', Label);
     Vue.component('semantic-loader', Loading);
     Vue.component('semantic-message', Message);
+    Vue.component('semantic-menu', Menu);
     Vue.component('semantic-modal', Modal);
     Vue.component('semantic-popup', Popup);
     Vue.component('semantic-radio', Radiobutton);
     Vue.component('semantic-rail', Rail);
     Vue.component('semantic-reveal', Reveal);
     Vue.component('semantic-search', Search);
+    Vue.component('semantic-sidebar', Sidebar);
     Vue.component('semantic-statistic', Statistic);
 
     if (!$.fn.transition) return;
