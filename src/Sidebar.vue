@@ -21,7 +21,7 @@ export default {
     },
     pushable: {
       type: Boolean,
-      default: false
+      default: true
     },
     transition: {
       type: String,
